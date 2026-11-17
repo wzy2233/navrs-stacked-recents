@@ -158,6 +158,8 @@ navrs-stacked-recents/
 │   ├── BUILD.md                 # 编译、部署、验证
 │   ├── ROM.md                   # 刷机包说明与校验
 │   ├── HANDOVER.md              # 现场笔记（踩坑记录，12 节）
+│   ├── RESTORE.md               # 换机还原清单
+│   ├── manifest-polaris-lineage-22.2.xml  # repo manifest -r，逐仓库 commit 锁
 │   └── DESIGN-NOTES.md          # 早期设计文档（43KB，含布局推导）
 ├── java/
 │   ├── navrs/                   # 独立 android_library 模块（com.wzy.navrs）

@@ -17,6 +17,7 @@
 | `MotionPauseDetector.java` | `quickstep/src/com/android/quickstep/util/` | 新增 `setForcePauseTimeoutMs()`（300→180ms） |
 | `quickstep-AndroidManifest.xml` | `quickstep/AndroidManifest.xml` | 声明 `NavRsRecentsActivity`（singleTask / 透明 / excludeFromRecents） |
 | `quickstep-res-values-styles.xml` | `quickstep/res/values/styles.xml` | 新增 `NavRsRecentsTheme`（透明窗口、禁用预览、无 dim） |
+| `Launcher3-Android.bp` | `packages/apps/Launcher3/Android.bp` | `Launcher3QuickStepLib` 的 `static_libs` 加 `"navrs"`；新增 `cc_prebuilt_library_shared "libnav_rs"`（arm64/arm 两个预编译 .so） |
 
 ## 怎么用
 

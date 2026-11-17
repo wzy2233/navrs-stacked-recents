@@ -25,13 +25,28 @@ git clone https://github.com/wzy2233/navrs-stacked-recents.git
 
 | 缺什么 | 为什么 | 怎么补 |
 | --- | --- | --- |
-| LineageOS 22.2 整棵树 | 几百 GB，不可能进 git | `repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 && repo sync -c -j8`（同一台机器上原本就有 `/root/android/lineage`） |
+| LineageOS 22.2 整棵树 | 几百 GB，不可能进 git | 用 `docs/manifest-polaris-lineage-22.2.xml`（`repo manifest -r` 导出的**逐仓库 commit 锁**）精确还原，见第 2.1 节 |
 | 编译产物（apk/odex/vdex/so） | 二进制，git 不适合 | Release 里的 `navrs-launcher-20261115.zip`，或自己编（见第 3 节） |
 | 设备端状态 | 不在代码里 | `adb root`、`mount -o rw,remount /system_ext`、`cmd overlay enable-exclusive ... threebutton` |
 | `libnav_rs-arm*.so` 预编译件 | 仓库里没放（可在本地生成） | `cargo ndk` 重新编（第 3 节），或从 Release 包里的 `libnav_rs.so` 取 arm64 版本 |
 
 > `java/framework/` 的 9 个文件是「改完的最终版」。移植到别的 ROM 时**不要直接覆盖**，
 > 按 `docs/PORTING.md` 第 3 节的 7 处 hook 逐处 diff。
+
+## 2.1 精确还原整棵树（推荐）
+
+仓库里的 `docs/manifest-polaris-lineage-22.2.xml` 是 `repo manifest -r` 的输出，记录了
+**每个子仓库当时的 exact commit**，用它 sync 出来的树和开发机逐字节一致（不依赖分支漂移）：
+
+```bash
+mkdir lineage && cd lineage
+repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 \
+          -m /path/to/navrs-stacked-recents/docs/manifest-polaris-lineage-22.2.xml
+repo sync -c -j8 --no-clone-bundle
+```
+
+> 不用 manifest 直接 `repo init -b lineage-22.2` 也能编，但半年后再 sync 可能拉到更新的提交，
+> 行为和当时不一定完全一致。
 
 ## 3. 在新机器上编出来
 
