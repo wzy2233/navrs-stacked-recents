@@ -1,0 +1,9 @@
+// Standalone NavRS recents module: compiles on its own so editing the animation
+// code does not rebuild the whole launcher library.
+android_library {
+    name: "navrs",
+    srcs: ["src/**/*.java"],
+    libs: ["Launcher3QuickStepLib"],
+    platform_apis: true,
+    min_sdk_version: "current",
+}
