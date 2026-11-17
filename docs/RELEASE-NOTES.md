@@ -12,7 +12,17 @@
 `-j2+GOGC=30`）都停在 `Running globs...` 不再产出 `build.ninja`。所以这次发布的是**能装、能跑**
 的 launcher 增量包；整包请按 `docs/ROM.md` 在 ≥32GB 内存的机器上 `m -j16 bacon`。
 
-## 包里有什么
+## 附件
+
+| 附件 | 大小 | SHA-256 | 内容 |
+| --- | --- | --- | --- |
+| `navrs-launcher-20261115.zip` | 15.0 MB | `cb74e6f14613a40c4cefa263675b507004b2a2a30e2ba488322165564e6a86c7` | 预编译 launcher 包（APK + odex + vdex + `libnav_rs.so` + 安装说明） |
+| `navrs-archive-20261117.zip` | 12.9 MB | `7e66734e696d086f6293e5f27a0506101f59fa0850883a43827cefb44115e2d4` | 过程资料归档：52 个演进补丁脚本、反编译参考类、Xposed 形态的早期实现、32 位 `.so`、两轮源码快照 |
+
+归档说明见包内 `MANIFEST.txt`。仓库本身已含最终源码、文档与
+`repo manifest -r` 的逐仓库 commit 锁（`docs/manifest-polaris-lineage-22.2.xml`）。
+
+## launcher 包里有什么
 
 | 文件 | 大小 | 说明 |
 | --- | --- | --- |
