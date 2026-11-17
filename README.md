@@ -182,19 +182,20 @@ navrs-stacked-recents/
 | [docs/HANDOVER.md](docs/HANDOVER.md) | 开发现场笔记：坐标、坑、日志判读 |
 | [docs/DESIGN-NOTES.md](docs/DESIGN-NOTES.md) | 早期设计长文：布局推导、六种布局尝试、为什么收敛到堆叠 |
 
-## 刷机包（ROM）
+## 预编译包（Release）
 
-验证载体是一台 **LineageOS 22.2（polaris / 小米 MIX 2S）整包**，已内置本项目的
-`Launcher3QuickStep`（含 `libnav_rs.so`），默认三键导航，刷完即可按多任务键体验。
+`v1.0.0` 的附件是**已在真机验证过**的 launcher 增量包（不是整包）：
 
-整包约 1.2 GB，作为 **Release 附件**发布（git 不适合存二进制）：
+| 附件 | 大小 | 内容 |
+| --- | --- | --- |
+| `navrs-launcher-20261115.zip` | 15.0 MB | `Launcher3QuickStep.apk` + `.odex` + `.vdex` + `libnav_rs.so` + 安装/回滚说明 |
 
-- 构建步骤、内存要求、发布前自检、校验和：**[docs/ROM.md](docs/ROM.md)**
-- Release 说明模板：**[docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md)**
-- 一键上传脚本：`tools/publish-release.sh`（`gh release create` 或 REST API）
+装法（`adb root` 后 push 四个文件 + `restorecon` + 切三键）见包内 `README.txt` 或
+[docs/ROM.md](docs/ROM.md) 第 5 节。
 
-> 注意：仓库开发过程中产生的 `lineage_polaris-ota.zip`（2026-11-02）是本项目**开始前**的
-> 基线包，不包含 NavRS；带堆叠后台的整包需要用本仓库源码重新 `m bacon` 生成。
+**整包**（`m bacon`）需要 ≥32GB 内存的机器：本项目开发机（宿主 15.8GB / WSL 12GB）在
+soong 全量分析阶段就会换页卡死，所以仓库不附带整包，只有构建脚本与校验流程
+（[docs/ROM.md](docs/ROM.md)）。
 
 ## 已知限制
 
