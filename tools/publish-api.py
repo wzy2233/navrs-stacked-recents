@@ -35,7 +35,7 @@ UPLOADS = "uploads.github.com"
 OWNER_DEFAULT = "wzy2233"
 REPO_DEFAULT = "navrs-stacked-recents"
 TAG = "v1.0.0"
-RELEASE_TITLE = "NavRS v1.0.0 — Rust 堆叠后台 + LineageOS 22.2 整包（polaris）"
+RELEASE_TITLE = "NavRS v1.0.0 — 预编译 launcher 包（Rust 堆叠后台）"
 
 SKIP_DIRS = {".git", ".idea", ".vscode", "__pycache__", "out", "target"}
 SKIP_EXT = {".bak", ".swp", ".pyc"}

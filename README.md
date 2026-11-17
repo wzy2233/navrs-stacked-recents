@@ -177,7 +177,8 @@ navrs-stacked-recents/
 | [docs/INTERFACES.md](docs/INTERFACES.md) | 33 个 JNI 函数、`NavRsActivity` facade、`NavRsBridge.Host`、Intent extra、`settings` 键、常量表 |
 | [docs/PORTING.md](docs/PORTING.md) | 从零移植到另一台机器：模块放置、7 处框架 hook、Rust 交叉编译、dexpreopt、SELinux、导航模式切换 |
 | [docs/BUILD.md](docs/BUILD.md) | 编译命令、部署顺序、`MSYS_NO_PATHCONV` 坑、验证清单 |
-| [docs/ROM.md](docs/ROM.md) | 已构建刷机包的版本、校验和、刷入方法 |
+| [docs/ROM.md](docs/ROM.md) | 整包构建、预编译 launcher 包、校验和、刷入方法 |
+| [docs/RESTORE.md](docs/RESTORE.md) | 换一台电脑如何从本仓库还原（仓库有什么 / 缺什么 / 怎么补） |
 | [docs/HANDOVER.md](docs/HANDOVER.md) | 开发现场笔记：坐标、坑、日志判读 |
 | [docs/DESIGN-NOTES.md](docs/DESIGN-NOTES.md) | 早期设计长文：布局推导、六种布局尝试、为什么收敛到堆叠 |
 

@@ -1,5 +1,23 @@
 # 刷机包（ROM）
 
+## 0. 当前实际发布的是「预编译 launcher 包」
+
+整包构建在本项目的开发机上跑不动（WSL 12GB / 宿主 15.8GB，`soong_build` 分析阶段换页卡死），
+所以 Release 里发布的是**已验证过的 launcher 增量包**：
+
+```
+navrs-launcher-20261115.zip   15.0 MB
+sha256 cb74e6f14613a40c4cefa263675b507004b2a2a30e2ba488322165564e6a86c7
+├─ Launcher3QuickStep.apk     12.2 MB
+├─ Launcher3QuickStep.odex    19.1 MB
+├─ Launcher3QuickStep.vdex     0.2 MB
+├─ libnav_rs.so                0.3 MB   (arm64-v8a, 含 nativeSetBarColor)
+└─ README.txt                            安装 / 回滚 / 版本说明
+```
+
+装法见包内 `README.txt`（`adb root` + push 四个文件 + `restorecon` + 切三键），
+和本文第 5 节的部署步骤一致。下面第 1 节起是「等你有了大内存机器，怎么出整包」。
+
 ## 1. 这个包是什么
 
 一台已经内置本项目的 LineageOS 22.2（Android 15）**整包 OTA**：
